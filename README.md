@@ -39,7 +39,8 @@ AE B AH K AH S B UH K
 DH EH R DH EH R
 T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
-def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Sequence[str]]: pass
+def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Sequence[str]]:
+pass
 
 # Answer:
 from collections import defaultdict
