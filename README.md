@@ -2,7 +2,6 @@
 [Python] The probability of rain on a given calendar day in Vancouver is p[i], where i is the day's index. For example, p[0] is the probability of rain on January 1st, and p[10] is the probability of precipitation on January 11th. Assume the year has 365 days (i.e. p has 365 elements). What is the chance it rains more than n (e.g. 100) days in Vancouver? Write a function that accepts p (probabilities of rain on a given calendar day) and n as input arguments and returns the possibility of raining at least n days.
 def prob_rain_more_than_n(p: Sequence[float], n: int) -> float: 
 pass
-
 # Answer:
 def prob_rain_more_than_n(p, n):
     """
@@ -19,7 +18,6 @@ def prob_rain_more_than_n(p, n):
     # P(X > n) = 1 - P(X <= n-1)
     probability = 1 - sum(p[:n])  # Assuming p contains probabilities for each day
     return probability
-
 # Example usage:
 if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
@@ -41,10 +39,8 @@ T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
 def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Sequence[str]]:
 pass
-
 # Answer:
 from collections import defaultdict
-
 def preprocess_dictionary(pronunciation_dict):
     """
     Preprocess the pronunciation dictionary into a data structure for efficient lookup.
