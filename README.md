@@ -10,7 +10,6 @@ def prob_rain_more_than_n(p, n):
     Parameters:
     - p: List of floats, probabilities of rain on each calendar day.
     - n: Integer, the threshold for the number of days.
-
     Returns:
     - float: Probability of raining more than n days in a year.
     """
@@ -19,15 +18,13 @@ def prob_rain_more_than_n(p, n):
     probability = 1 - sum(p[:n])  # Assuming p contains probabilities for each day
     return probability
 
-# Example usage:
+# Example:
 if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
     probabilities = [0.3] * 365  # For simplicity, assuming a constant probability
     threshold_days = 100
-
     # Calculate the probability of raining more than the specified threshold
     result = prob_rain_more_than_n(probabilities, threshold_days)
-
     # Display the result
     print(f"The probability of raining more than {threshold_days} days is: {result}")
 
@@ -45,10 +42,8 @@ from collections import defaultdict
 def preprocess_dictionary(pronunciation_dict):
     """
     Preprocess the pronunciation dictionary into a data structure for efficient lookup.
-
     Parameters:
     - pronunciation_dict: List of words with their corresponding phoneme sequences.
-
     Returns:
     - dict: A dictionary with phoneme sequences as keys and lists of words as values.
     """
@@ -62,11 +57,9 @@ def preprocess_dictionary(pronunciation_dict):
 def find_word_combinations(phoneme_dict, input_sequence):
     """
     Find all combinations of words that can produce the given phoneme sequence.
-
     Parameters:
     - phoneme_dict: Preprocessed dictionary of phoneme sequences and corresponding words.
     - input_sequence: List of phonemes to find combinations for.
-
     Returns:
     - list: List of word combinations that can produce the input phoneme sequence.
     """
@@ -86,7 +79,7 @@ def find_word_combinations(phoneme_dict, input_sequence):
     backtrack(0, [])
     return result
 
-# Example usage:
+# Example:
 if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
