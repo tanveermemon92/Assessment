@@ -3,6 +3,7 @@
 def prob_rain_more_than_n(p: Sequence[float], n: int) -> float: 
 pass
 
+# Answer:
 def prob_rain_more_than_n(p, n):
     """
     Calculate the probability of raining more than n days in a year.
