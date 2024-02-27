@@ -96,7 +96,7 @@ def find_word_combinations(phoneme_dict, input_sequence):
     backtrack(0, [])
     return result
 
-# Example usage:
+# Example:
 if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
