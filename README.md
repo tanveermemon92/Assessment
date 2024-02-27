@@ -3,10 +3,10 @@ Question 1:
 def prob_rain_more_than_n(p: Sequence[float], n: int) -> float: 
 pass
 Answer:
+
 def prob_rain_more_than_n(p, n):
     """
     Calculate the probability of raining more than n days in a year.
-
     Parameters:
     - p: List of floats, probabilities of rain on each calendar day.
     - n: Integer, the threshold for the number of days.
@@ -40,8 +40,8 @@ T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
 def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Sequence[str]]: pass
 Answer:
-from collections import defaultdict
 
+from collections import defaultdict
 def preprocess_dictionary(pronunciation_dict):
     """
     Preprocess the pronunciation dictionary into a data structure for efficient lookup.
