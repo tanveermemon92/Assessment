@@ -41,10 +41,9 @@ def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Seq
 pass
 # Answer:
 from collections import defaultdict
-
 def preprocess_dictionary(pronunciation_dict):
-    """
-    Preprocess the pronunciation dictionary into a data structure for efficient lookup.
+   
+    # Preprocess the pronunciation dictionary into a data structure for efficient lookup.
 
     Parameters:
     - pronunciation_dict: List of words with their corresponding phoneme sequences.
