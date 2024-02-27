@@ -113,3 +113,210 @@ if __name__ == "__main__":
     print("All combinations of words that can produce the given phoneme sequence:")
     for combination in result:
         print(combination)
+# Question 3:
+[C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
+char **find_frequent_words(const char *path, int32_t n) { // implementation
+}
+# Answer:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+// Define a structure for a key-value pair in the hash table
+typedef struct {
+    char *key;
+    int count;
+} KeyValuePair;
+
+// Define a structure for the hash table
+typedef struct {
+    KeyValuePair *table;
+    int size;
+} HashTable;
+
+// Define a structure for a heap node
+typedef struct {
+    char *word;
+    int count;
+} HeapNode;
+
+// Define a structure for the priority queue (min heap)
+typedef struct {
+    HeapNode *heapArray;
+    int capacity;
+    int size;
+} PriorityQueue;
+
+// Function to initialize the hash table
+void initializeHashTable(HashTable *hashTable, int size) {
+    hashTable->size = size;
+    hashTable->table = (KeyValuePair *)malloc(size * sizeof(KeyValuePair));
+    for (int i = 0; i < size; i++) {
+        hashTable->table[i].key = NULL;
+        hashTable->table[i].count = 0;
+    }
+}
+
+// Function to hash a string and return an index
+int hashFunction(const char *key, int tableSize) {
+    int hash = 0;
+    for (int i = 0; key[i] != '\0'; i++) {
+        hash = (hash * 31 + key[i]) % tableSize;
+    }
+    return hash;
+}
+
+// Function to insert a key-value pair into the hash table
+void insertIntoHashTable(HashTable *hashTable, const char *key) {
+    int index = hashFunction(key, hashTable->size);
+
+    while (hashTable->table[index].key != NULL) {
+        // Collision resolution (linear probing)
+        index = (index + 1) % hashTable->size;
+    }
+
+    hashTable->table[index].key = strdup(key);
+    hashTable->table[index].count++;
+}
+
+// Function to initialize the priority queue (min heap)
+void initializePriorityQueue(PriorityQueue *pq, int capacity) {
+    pq->capacity = capacity;
+    pq->size = 0;
+    pq->heapArray = (HeapNode *)malloc(capacity * sizeof(HeapNode));
+}
+
+// Function to swap two heap nodes
+void swapHeapNodes(HeapNode *a, HeapNode *b) {
+    HeapNode temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Function to heapify a subtree rooted at index i
+void minHeapify(PriorityQueue *pq, int i) {
+    int smallest = i;
+    int leftChild = 2 * i + 1;
+    int rightChild = 2 * i + 2;
+
+    if (leftChild < pq->size && pq->heapArray[leftChild].count < pq->heapArray[smallest].count) {
+        smallest = leftChild;
+    }
+
+    if (rightChild < pq->size && pq->heapArray[rightChild].count < pq->heapArray[smallest].count) {
+        smallest = rightChild;
+    }
+
+    if (smallest != i) {
+        swapHeapNodes(&pq->heapArray[i], &pq->heapArray[smallest]);
+        minHeapify(pq, smallest);
+    }
+}
+
+// Function to extract the minimum element from the priority queue
+HeapNode extractMin(PriorityQueue *pq) {
+    HeapNode minNode = pq->heapArray[0];
+    pq->heapArray[0] = pq->heapArray[pq->size - 1];
+    pq->size--;
+    minHeapify(pq, 0);
+    return minNode;
+}
+
+// Function to insert a new element into the priority queue
+void insertIntoPriorityQueue(PriorityQueue *pq, const char *word, int count) {
+    if (pq->size == pq->capacity) {
+        // Priority queue is full, compare with the minimum element
+        if (count > pq->heapArray[0].count) {
+            pq->heapArray[0].count = count;
+            pq->heapArray[0].word = strdup(word);
+            minHeapify(pq, 0);
+        }
+    } else {
+        // Priority queue is not full, insert a new element
+        int i = pq->size;
+        pq->size++;
+        pq->heapArray[i].count = count;
+        pq->heapArray[i].word = strdup(word);
+
+        // Fix the min heap property
+        while (i > 0 && pq->heapArray[(i - 1) / 2].count > pq->heapArray[i].count) {
+            swapHeapNodes(&pq->heapArray[i], &pq->heapArray[(i - 1) / 2]);
+            i = (i - 1) / 2;
+        }
+    }
+}
+
+// Function to find the n most frequent words in the dataset
+char **find_frequent_words(const char *path, int32_t n) {
+    // Assuming path contains the file path to the TensorFlow Shakespeare dataset
+
+    FILE *file = fopen(path, "r");
+    if (!file) {
+        perror("Error opening file");
+        return NULL;
+    }
+
+    // Initialize hash table and priority queue
+    HashTable hashTable;
+    initializeHashTable(&hashTable, 10007);  // Choose a suitable prime number as the table size
+    PriorityQueue pq;
+    initializePriorityQueue(&pq, n);
+
+    char buffer[256];
+    while (fscanf(file, "%s", buffer) == 1) {
+        // Convert the word to lowercase (assuming case-insensitive counting)
+        for (int i = 0; buffer[i]; i++) {
+            buffer[i] = tolower(buffer[i]);
+        }
+
+        // Insert the word into the hash table
+        insertIntoHashTable(&hashTable, buffer);
+    }
+
+    // Insert the elements from the hash table into the priority queue
+    for (int i = 0; i < hashTable.size; i++) {
+        if (hashTable.table[i].key != NULL) {
+            insertIntoPriorityQueue(&pq, hashTable.table[i].key, hashTable.table[i].count);
+        }
+    }
+
+    // Create an array to store the result
+    char **result = (char **)malloc(n * sizeof(char *));
+    for (int i = n - 1; i >= 0; i--) {
+        HeapNode minNode = extractMin(&pq);
+        result[i] = minNode.word;
+    }
+
+    // Clean up memory
+    for (int i = 0; i < hashTable.size; i++) {
+        free(hashTable.table[i].key);
+    }
+    free(hashTable.table);
+
+    for (int i = 0; i < n; i++) {
+        free(pq.heapArray[i].word);
+    }
+    free(pq.heapArray);
+
+    fclose(file);
+
+    return result;
+}
+
+// Example usage
+int main() {
+    char **frequentWords = find_frequent_words("path/to/tf_shakespeare_dataset.txt", 5);
+
+    if (frequentWords) {
+        printf("The 5 most frequent words are:\n");
+        for (int i = 0; i < 5; i++) {
+            printf("%s\n", frequentWords[i]);
+            free(frequentWords[i]);
+        }
+        free(frequentWords);
+    }
+
+    return 0;
+}
