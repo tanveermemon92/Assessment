@@ -3,13 +3,14 @@
 def prob_rain_more_than_n(p: Sequence[float], n: int) -> float: 
 pass
 
-# Answer:
 def prob_rain_more_than_n(p, n):
     """
     Calculate the probability of raining more than n days in a year.
+
     Parameters:
     - p: List of floats, probabilities of rain on each calendar day.
     - n: Integer, the threshold for the number of days.
+
     Returns:
     - float: Probability of raining more than n days in a year.
     """
@@ -18,13 +19,15 @@ def prob_rain_more_than_n(p, n):
     probability = 1 - sum(p[:n])  # Assuming p contains probabilities for each day
     return probability
 
-# Example:
+# Example usage:
 if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
     probabilities = [0.3] * 365  # For simplicity, assuming a constant probability
     threshold_days = 100
+
     # Calculate the probability of raining more than the specified threshold
     result = prob_rain_more_than_n(probabilities, threshold_days)
+
     # Display the result
     print(f"The probability of raining more than {threshold_days} days is: {result}")
 
