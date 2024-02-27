@@ -18,7 +18,7 @@ def prob_rain_more_than_n(p, n):
     # P(X > n) = 1 - P(X <= n-1)
     probability = 1 - sum(p[:n])  # Assuming p contains probabilities for each day
     return probability
-# Example usage:
+# Example:
 if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
     probabilities = [0.3] * 365  # For simplicity, assuming a constant probability
@@ -85,7 +85,7 @@ def find_word_combinations(phoneme_dict, input_sequence):
     backtrack(0, [])
     return result
 
-# Example usage:
+# Example:
 if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
@@ -117,6 +117,7 @@ if __name__ == "__main__":
 [C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
 char **find_frequent_words(const char *path, int32_t n) { // implementation
 }
+
 # Answer:
 #include <stdio.h>
 #include <stdlib.h>
@@ -305,7 +306,7 @@ char **find_frequent_words(const char *path, int32_t n) {
     return result;
 }
 
-// Example usage
+# Example:
 int main() {
     char **frequentWords = find_frequent_words("path/to/tf_shakespeare_dataset.txt", 5);
 
