@@ -39,11 +39,14 @@ def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Seq
 
 # Answer:
 from collections import defaultdict
+
 def preprocess_dictionary(pronunciation_dict):
     """
     Preprocess the pronunciation dictionary into a data structure for efficient lookup.
+
     Parameters:
     - pronunciation_dict: List of words with their corresponding phoneme sequences.
+
     Returns:
     - dict: A dictionary with phoneme sequences as keys and lists of words as values.
     """
@@ -57,9 +60,11 @@ def preprocess_dictionary(pronunciation_dict):
 def find_word_combinations(phoneme_dict, input_sequence):
     """
     Find all combinations of words that can produce the given phoneme sequence.
+
     Parameters:
     - phoneme_dict: Preprocessed dictionary of phoneme sequences and corresponding words.
     - input_sequence: List of phonemes to find combinations for.
+
     Returns:
     - list: List of word combinations that can produce the input phoneme sequence.
     """
@@ -79,7 +84,7 @@ def find_word_combinations(phoneme_dict, input_sequence):
     backtrack(0, [])
     return result
 
-# Example:
+# Example usage:
 if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
@@ -97,6 +102,11 @@ if __name__ == "__main__":
 
     # Find word combinations that can produce the input phoneme sequence
     result = find_word_combinations(phoneme_dict, input_sequence)
+
+    # Display the result
+    print("All combinations of words that can produce the given phoneme sequence:")
+    for combination in result:
+        print(combination)
 
     # Display the result
     print("All combinations of words that can produce the given phoneme sequence:")
