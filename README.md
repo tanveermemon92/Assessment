@@ -245,7 +245,7 @@ int main() {
 import numpy as np
 from mindspore import nn, context
 
-# Define the CTC forward-backward algorithm
+#Define the CTC forward-backward algorithm
 class CTCForwardBackward(nn.Cell):
     def __init__(self, config):
         super(CTCForwardBackward, self).__init__()
