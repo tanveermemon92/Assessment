@@ -118,19 +118,19 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
 # Question 3:
 [C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
 # Answer:
-   #include <stdio.h>
-   #include <stdlib.h>
-   #include <string.h>
-   #include <stdint.h>
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <stdint.h>
 
-   #define MAX_WORD_LENGTH 50
-   #define INITIAL_CAPACITY 100
+    #define MAX_WORD_LENGTH 50
+    #define INITIAL_CAPACITY 100
 
-   // Structure to hold a word-frequency pair
-   typedef struct {
+    // Structure to hold a word-frequency pair
+    typedef struct {
     char word[MAX_WORD_LENGTH];
     int frequency;
-   } WordFrequency;
+    } WordFrequency;
 
     // Function to compare two word-frequency pairs for sorting
     int compare(const void *a, const void *b) {
