@@ -236,7 +236,7 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
     }
 
     return 0;
-}
+    }
 
 # Question 4:
 [Python] Implement CTC as described in this paper. Your implementation should support both forward and backward propagation operations.
