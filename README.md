@@ -222,9 +222,9 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
         free(frequentWords);
     }
     return 0;
-}
+    }
 # Example:
-int main() {
+    int main() {
     char **frequentWords = find_frequent_words("path/to/tf_shakespeare_dataset.txt", 5);
     if (frequentWords) {
         printf("The 5 most frequent words are:\n");
