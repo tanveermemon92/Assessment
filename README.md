@@ -1,7 +1,5 @@
 # Question 1:
 [Python] The probability of rain on a given calendar day in Vancouver is p[i], where i is the day's index. For example, p[0] is the probability of rain on January 1st, and p[10] is the probability of precipitation on January 11th. Assume the year has 365 days (i.e. p has 365 elements). What is the chance it rains more than n (e.g. 100) days in Vancouver? Write a function that accepts p (probabilities of rain on a given calendar day) and n as input arguments and returns the possibility of raining at least n days.
-def prob_rain_more_than_n(p: Sequence[float], n: int) -> float: 
-pass
 # Answer:
 def prob_rain_more_than_n(p, n):
     """
@@ -37,8 +35,6 @@ AE B AH K AH S B UH K
 DH EH R DH EH R
 T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
-def find_word_combos_with_pronunciation(phonemes: Sequence[str]) -> Sequence[Sequence[str]]:
-pass
 # Answer:
 from collections import defaultdict
 
@@ -121,9 +117,6 @@ if __name__ == "__main__":
         print(combination)
 # Question 3:
 [C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
-char **find_frequent_words(const char *path, int32_t n) { // implementation
-}
-
 # Answer:
 #include <stdio.h>
 #include <stdlib.h>
