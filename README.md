@@ -241,11 +241,11 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
 # Question 4:
 [Python] Implement CTC as described in this paper. Your implementation should support both forward and backward propagation operations.
 # Answer: 
-import numpy as np
-from mindspore import nn, context
+    import numpy as np
+    from mindspore import nn, context
 
-# Define the CTC forward-backward algorithm
-class CTCForwardBackward(nn.Cell):
+    #Define the CTC forward-backward algorithm
+    class CTCForwardBackward(nn.Cell):
     def __init__(self, config):
         super(CTCForwardBackward, self).__init__()
         self.config = config
@@ -300,17 +300,17 @@ class CTCForwardBackward(nn.Cell):
         return conditional_probs
 
 
-# Example usage
-config = {}  # Define your configuration
-log_probs = np.random.rand(10, 4)  # Example log probabilities (time steps, num_classes)
-labels = [1, 2, 1]  # Example label sequence
+# Example:
+    config = {}  # Define your configuration
+    log_probs = np.random.rand(10, 4)  # Example log probabilities (time steps, num_classes)
+    labels = [1, 2, 1]  # Example label sequence
 
-# Initialize MindSpore context
-context.set_context(mode=context.GRAPH_MODE)
+    #Initialize MindSpore context
+    context.set_context(mode=context.GRAPH_MODE)
 
-# Create CTC forward-backward algorithm
-ctc_forward_backward = CTCForwardBackward(config)
+    #Create CTC forward-backward algorithm
+    ctc_forward_backward = CTCForwardBackward(config)
 
-# Perform forward-backward propagation
-conditional_probs = ctc_forward_backward(log_probs, labels)
-print("Conditional probabilities:", conditional_probs)
+    #Perform forward-backward propagation
+    conditional_probs = ctc_forward_backward(log_probs, labels)
+    print("Conditional probabilities:", conditional_probs)
