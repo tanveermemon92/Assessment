@@ -58,7 +58,7 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
 
     return phoneme_dict
 
-def find_word_combinations(phoneme_dict, input_sequence):
+    def find_word_combinations(phoneme_dict, input_sequence):
     """
     Find all combinations of words that can produce the given phoneme sequence.
 
@@ -93,7 +93,7 @@ def find_word_combinations(phoneme_dict, input_sequence):
     return result
 
 # Example:
-if __name__ == "__main__":
+    if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
                           "BOOK", ["B", "UH", "K"],
