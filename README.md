@@ -244,8 +244,7 @@ int main() {
 # Answer:
 import numpy as np
 from mindspore import nn, context
-
-# Define the CTC forward-backward algorithm
+#Define the CTC forward-backward algorithm
 class CTCForwardBackward(nn.Cell):
     def __init__(self, config):
         super(CTCForwardBackward, self).__init__()
@@ -304,13 +303,12 @@ class CTCForwardBackward(nn.Cell):
 config = {}  # Define your configuration
 log_probs = np.random.rand(10, 4)  # Example log probabilities (time steps, num_classes)
 labels = [1, 2, 1]  # Example label sequence
-
-# Initialize MindSpore context
+#Initialize MindSpore context
 context.set_context(mode=context.GRAPH_MODE)
 
-# Create CTC forward-backward algorithm
+#Create CTC forward-backward algorithm
 ctc_forward_backward = CTCForwardBackward(config)
 
-# Perform forward-backward propagation
+#Perform forward-backward propagation
 conditional_probs = ctc_forward_backward(log_probs, labels)
 print("Conditional probabilities:", conditional_probs)
