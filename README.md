@@ -210,8 +210,8 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
     result[n] = NULL; // Terminate the array with NULL
     free(wordFreq);
     return result;
-}
-int main() {
+    }
+    int main() {
     char **frequentWords = find_frequent_words("shakespeare.txt", 10);
     if (frequentWords != NULL) {
         printf("Top 10 frequent words:\n");
