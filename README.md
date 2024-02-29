@@ -300,13 +300,13 @@ class CTCForwardBackward(nn.Cell):
 
         return conditional_probs
 # Example:
-config = {} # Define your configuration\n
-log_probs = np.random.rand(10, 4) # Example log probabilities (time steps, num_classes)\n
-labels = [1, 2, 1] # Example label sequence\n\n
-# Initialize MindSpore context\n
-context.set_context(mode=context.GRAPH_MODE)\n\n
-# Create CTC forward-backward algorithm\n
-ctc_forward_backward = CTCForwardBackward(config)\n\n
-# Perform forward-backward propagation\n
-conditional_probs = ctc_forward_backward(log_probs, labels)\n
-print("Conditional probabilities:", conditional_probs)\n
+config = {}  # Define your configuration
+log_probs = np.random.rand(10, 4)  # Example log probabilities (time steps, num_classes)
+labels = [1, 2, 1]  # Example label sequence
+Initialize MindSpore context
+context.set_context(mode=context.GRAPH_MODE)
+Create CTC forward-backward algorithm
+ctc_forward_backward = CTCForwardBackward(config)
+Perform forward-backward propagation
+conditional_probs = ctc_forward_backward(log_probs, labels)
+print("Conditional probabilities:", conditional_probs)
