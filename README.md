@@ -243,18 +243,17 @@ int main() {
 [Python] Implement CTC as described in this paper. Your implementation should support both forward and backward propagation operations.
 # Answer:
 
-import numpy as np
-from mindspore import nn, context
-
-#Define the CTC forward-backward algorithm
-class CTCForwardBackward(nn.Cell):
-    def __init__(self, config):
-        super(CTCForwardBackward, self).__init__()
-        self.config = config
-        self.net = CTCModel(input_size=config.feature_dim, batch_size=config.batch_size,
-                            hidden_size=config.hidden_size, num_class=config.n_class, num_layers=config.n_layer)
-        self.loss_fn = CTC_Loss(batch_size=config.batch_size, max_label_length=config.max_label_length)
-        self.loss_net = WithCtcLossCell(self.net, self.loss_fn)
+import numpy as np\n
+from mindspore import nn, context\n\n
+# Define the CTC forward-backward algorithm\n
+class CTCForwardBackward(nn.Cell):\n
+    def __init__(self, config):\n
+        super(CTCForwardBackward, self).__init__()\n
+        self.config = config\n
+        self.net = CTCModel(input_size=config.feature_dim, batch_size=config.batch_size,\n
+                            hidden_size=config.hidden_size, num_class=config.n_class, num_layers=config.n_layer)\n
+        self.loss_fn = CTC_Loss(batch_size=config.batch_size, max_label_length=config.max_label_length)\n
+        self.loss_net = WithCtcLossCell(self.net, self.loss_fn)\n
 
     def construct(self, log_probs, labels):
         T, V = log_probs.shape  # T: number of time steps, V: number of classes (including blank)
