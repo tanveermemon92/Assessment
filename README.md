@@ -132,12 +132,12 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
     int frequency;
    } WordFrequency;
 
-// Function to compare two word-frequency pairs for sorting
-int compare(const void *a, const void *b) {
+    // Function to compare two word-frequency pairs for sorting
+    int compare(const void *a, const void *b) {
     return ((WordFrequency *)b)->frequency - ((WordFrequency *)a)->frequency;
-}
+    }
 
-char **find_frequent_words(const char *path, int32_t n) {
+    char **find_frequent_words(const char *path, int32_t n) {
     FILE *file = fopen(path, "r");
     if (file == NULL) {
         fprintf(stderr, "Error opening file\n");
@@ -154,7 +154,6 @@ char **find_frequent_words(const char *path, int32_t n) {
 
     int capacity = INITIAL_CAPACITY;
     int size = 0;
-
     // Read words from file and count their frequencies
     char word[MAX_WORD_LENGTH];
     while (fscanf(file, "%s", word) == 1) {
