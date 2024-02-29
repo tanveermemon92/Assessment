@@ -17,7 +17,7 @@
     probability = 1 - sum(p[:n])  # Assuming p contains probabilities for each day
     return probability
 # Example:
-if __name__ == "__main__":
+    if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
     probabilities = [0.3] * 365  # For simplicity, assuming a constant probability
     threshold_days = 100
@@ -36,11 +36,11 @@ DH EH R DH EH R
 T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
 # Answer:
-from collections import defaultdict
+    from collections import defaultdict
 
-def preprocess_dictionary(pronunciation_dict):
+    def preprocess_dictionary(pronunciation_dict):
 
-Preprocess the pronunciation dictionary into a data structure for efficient lookup.
+    Preprocess the pronunciation dictionary into a data structure for efficient lookup.
 
     Parameters:
     - pronunciation_dict: List of words with their corresponding phoneme sequences.
