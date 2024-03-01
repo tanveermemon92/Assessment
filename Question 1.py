@@ -19,7 +19,7 @@ def prob_rain_more_than_n(p, n):
 # Example:
 if __name__ == "__main__":
     # Replace with actual probabilities for each day, e.g., based on historical data
-    probabilities = [0.3] * 365  # For simplicity, assuming a constant probability
+    probabilities = [0.4] * 365  # For simplicity, assuming a constant probability
     threshold_days = 100
 
     # Calculate the probability of raining more than the specified threshold
