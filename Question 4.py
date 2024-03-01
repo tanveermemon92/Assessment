@@ -1,5 +1,4 @@
-# Question 4:
-[Python] Implement CTC as described in this paper. Your implementation should support both forward and backward propagation operations.
+# Question 4: [Python] Implement CTC as described in this paper. Your implementation should support both forward and backward propagation operations.
 # Answer: 
     import numpy as np
     from mindspore import nn, context
