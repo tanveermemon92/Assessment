@@ -1,15 +1,14 @@
-# Question 2:
-[Python] A phoneme is a sound unit (similar to a character for text). We have an extensive pronunciation dictionary (think millions of words). Below is a snippet:
+# Question 2: [Python] A phoneme is a sound unit (similar to a character for text). We have an extensive pronunciation dictionary (think millions of words). Below is a snippet:
 ABACUS BOOK THEIR THERE TOMATO TOMATO
 AE B AH K AH S B UH K
 DH EH R DH EH R
 T AH M AA T OW T AH M EY T OW
 Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]), find all the combinations of the words that can produce this sequence (e.g. [["THEIR", "THEIR"], ["THEIR", "THERE"], ["THERE", "THEIR"], ["THERE", "THERE"]]). You can preprocess the dictionary into a different data structure if needed.
 # Answer:
-    from collections import defaultdict
+from collections import defaultdict
 
-    def preprocess_dictionary(pronunciation_dict):
-
+def preprocess_dictionary(pronunciation_dict):
+    """
     Preprocess the pronunciation dictionary into a data structure for efficient lookup.
 
     Parameters:
@@ -28,7 +27,7 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
 
     return phoneme_dict
 
-    def find_word_combinations(phoneme_dict, input_sequence):
+def find_word_combinations(phoneme_dict, input_sequence):
     """
     Find all combinations of words that can produce the given phoneme sequence.
 
@@ -62,8 +61,8 @@ Given a sequence of phonemes as input (e.g. ["DH", "EH", "R", "DH", "EH", "R"]),
     backtrack(0, [])
     return result
 
-# Example:
-    if __name__ == "__main__":
+# Example usage:
+if __name__ == "__main__":
     # Given pronunciation dictionary
     pronunciation_dict = ["ABACUS", ["AE", "B", "AH", "K", "AH", "S"],
                           "BOOK", ["B", "UH", "K"],
