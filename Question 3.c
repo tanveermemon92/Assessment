@@ -1,5 +1,5 @@
-# Question 3:[C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
-# Answer:
+// Question 3:[C] Find the n most frequent words in the TensorFlow Shakespeare dataset.
+// Answer:
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -93,7 +93,7 @@ char **find_frequent_words(const char *path, int32_t n) {
     free(wordFreq);
     return result;
 }
-# Example: 
+// Example: 
 int main() {
     char **frequentWords = find_frequent_words("shakespeare.txt", 10);
     if (frequentWords != NULL) {
